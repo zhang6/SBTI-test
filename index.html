@@ -742,7 +742,6 @@
       </div>
     </section>
 
-    
     <section id="result" class="screen">
       <div class="result-wrap card">
         <div class="result-layout">
@@ -761,7 +760,7 @@
           </div>
 
           <div class="analysis-box">
-            <h3>该人格的简单解读</h3>
+            <h3>该人格的简单解释</h3>
             <p id="resultDesc"></p>
           </div>
 
@@ -775,7 +774,7 @@
             <p id="funNote">本测试仅供娱乐，别拿它当诊断、面试、相亲、分手、招魂、算命或人生判决书。</p>
           </div>
 
-                    <details class="author-box">
+          <details class="author-box">
             <summary>作者的话</summary>
             <div class="author-content">
               <p>本测试首发于b站up主蛆肉儿串儿（UID417038183），初衷是劝诫一位爱喝酒的朋友戒酒。</p>
@@ -1597,7 +1596,7 @@
       const complete = done === total && total > 0;
       submitBtn.disabled = !complete;
       testHint.textContent = complete
-        ? '都做完了。现在可以把你的电子魂魄交给结果页审判。'
+        ? '都做完了。点下面按钮查看属于你的那份判决书。'
         : '全选完才会放行。世界已经够乱了，起码把题做完整。';
     }
 
@@ -1697,14 +1696,14 @@
         const level = result.levels[dim];
         const explanation = DIM_EXPLANATIONS[dim][level];
         return `
-          <div class="dim-item">
-            <div class="dim-item-top">
-              <div class="dim-item-name">${dimensionMeta[dim].name}</div>
-              <div class="dim-item-score">${level} / ${result.rawScores[dim]}分</div>
+            <div class="dim-item">
+              <div class="dim-item-top">
+                <div class="dim-item-name">${dimensionMeta[dim].name}</div>
+                <div class="dim-item-score">${level} / ${result.rawScores[dim]}分</div>
+              </div>
+              <p>${explanation}</p>
             </div>
-            <p>${explanation}</p>
-          </div>
-        `;
+          `;
       }).join('');
     }
 
